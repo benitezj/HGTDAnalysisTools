@@ -1,0 +1,191 @@
+
+###ATLAS-P2-SFCAL-01-00-00
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2638_s2206_r7699
+geometryVersion      : ATLAS-P2-SFCAL-01-00-00
+conditionsTag        : OFLCOND-MC12-ITK-S-30-80-25
+prodsysIdentifier_0  : 7911707
+
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2638_s2206_r7700
+geometryVersion      : ATLAS-P2-SFCAL-01-00-00
+conditionsTag        : OFLCOND-MC12-ITK-S-30-140-25
+prodsysIdentifier_0  : 7911710
+
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2638_s2206_r7701
+geometryVersion      : ATLAS-P2-SFCAL-01-00-00
+conditionsTag        : OFLCOND-MC12-ITK-S-30-200-25
+prodsysIdentifier_0  : 7911714
+
+
+### ATLAS-P2-SFCAL-02-00-00
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2640_s2206_r7702
+geometryVersion      : ATLAS-P2-SFCAL-02-00-00
+conditionsTag        : OFLCOND-MC12-ITK-L-30-80-25
+prodsysIdentifier_0  : 7911859
+
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2640_s2206_r7703
+geometryVersion      : ATLAS-P2-SFCAL-02-00-00
+conditionsTag        : OFLCOND-MC12-ITK-L-30-140-25
+prodsysIdentifier_0  : 7911862
+
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2640_s2206_r7704
+geometryVersion      : ATLAS-P2-SFCAL-02-00-00
+conditionsTag        : OFLCOND-MC12-ITK-L-30-200-25
+prodsysIdentifier_0  : 7911865
+
+
+#### ATLAS-P2-ITK-01-00-00
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2630_s2206_r7709
+geometryVersion      : ATLAS-P2-ITK-01-00-00
+conditionsTag        : OFLCOND-MC12-ITK-F-30-80-25
+prodsysIdentifier_0  : 7978468
+
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2630_s2206_r7768
+geometryVersion      : ATLAS-P2-ITK-01-00-00
+conditionsTag        : OFLCOND-MC12-ITK-F-30-140-25
+prodsysIdentifier_0  : 8020038
+
+logicalDatasetName   : mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.ESD.e4591_s2630_s2206_r7769
+geometryVersion      : ATLAS-P2-ITK-01-00-00
+conditionsTag        : OFLCOND-MC12-ITK-F-30-200-25
+prodsysIdentifier_0  : 7978474
+
+
+#######################################################################################
+######################## Reco_tf Parameters mu=200 ####################################
+#######################################################################################
+--AMITag=r7769
+--autoConfiguration=everything
+--conditionsTag "all:OFLCOND-MC12-ITK-F-30-200-25"
+--DataRunNumber=195847
+--DBRelease="all:current"
+--geometryVersion="all:ATLAS-P2-ITK-01-00-00"
+--ignorePatterns='ALL ,LArTTCellMap , ERROR .*'
+--numberOfHighPtMinBias=0.69064
+--numberOfLowPtMinBias=199.304
+--pileupFinalBunch=6
+--postExec "all:from IOVDbSvc.CondDB import conddb" "HITtoRDO:mergeMcEventCollTool=job.StandardPileUpToolsAlg.PileUpTools[\"MergeMcEventCollTool\"];mergeMcEventCollTool.OnlySaveSignalTruth=False;mergeMcEventCollTool.FirstXing=0;mergeMcEventCollTool.LastXing=0;mergeMcEventCollTool.DoSlimming=False;pixeldigi.EnableSpecialPixels=False;CfgMgr.MessageSvc().setError+=[\"HepMcParticleLink\"];tagToOverride=\"mV-LSB\";conddb.addOverride(\"/LAR/ElecCalibMCSC/Noise\",\"LARElecCalibMCSCNoise-\"+tagToOverride);conddb.addOverride(\"/LAR/ElecCalibMCSC/Ramp\", \"LARElecCalibMCSRamp-\"+tagToOverride);topSequence.LArSCL1Maker.TruthHitsContainer=\"SCellTruth\";streamRDO.ItemList+=[\"CaloCellContainer#SCellTruth\"]" "RAWtoESD:xAODMaker__xAODTruthCnvAlg(\"GEN_AOD2xAOD\",WriteInTimePileUpTruth=True);StreamESD.ItemList+=[\"LArDigitContainer#LArDigitSCL1\"]; StreamESD.ItemList+=[\"CaloCellContainer#SCell\"]" "ESDtoAOD:StreamAOD.ItemList+=[\"LArDigitContainer#LArDigitSCL1\"]; StreamAOD.ItemList+=[\"CaloCellContainer#SCell\"]"
+--postInclude "all:PyJobTransforms/UseFrontier.py,InDetSLHC_Example/postInclude.SLHC_Setup.py" "HITtoRDO:InDetSLHC_Example/postInclude.SLHC_Digitization_lowthresh.py,LArROD/LArSuperCellEnable.py" "RAWtoESD:InDetSLHC_Example/postInclude.DigitalClustering.py"
+--preExec "all:from LArROD.LArRODFlags import larRODFlags; larRODFlags.doOFCPileupOptimization.set_Value_and_Lock(True); larRODFlags.NumberOfCollisions.set_Value_and_Lock(200); from Digitization.DigitizationFlags import digitizationFlags; digitizationFlags.doInDetNoise.set_Value_and_Lock(False); from AthenaCommon.BeamFlags import jobproperties; jobproperties.Beam.bunchSpacing=25; digitizationFlags.overrideMetadata+=[\"SimLayout\",\"PhysicsList\"]; from CaloTools.CaloNoiseFlags import jobproperties; jobproperties.CaloNoiseFlags.FixedLuminosity.set_Value_and_Lock(200.0*1.45/8*50/25); userRunLumiOverride={\"run\":195847, \"startmu\":190.0, \"endmu\":210.0, \"stepmu\":1.0, \"lb\":1, \"starttstamp\":1328040250}; rec.doTrigger.set_Value_and_Lock(False)" "RAWtoESD:from CaloRec.CaloCellFlags import jobproperties;jobproperties.CaloCellFlags.doLArCellEmMisCalib=False;InDetFlags.doSLHCVeryForward.set_Value_and_Lock(True)"
+--preInclude "HITtoRDO:InDetSLHC_Example/preInclude.SLHC.py,InDetSLHC_Example/preInclude.NoTRT.py,Digitization/ForceUseOfPileUpTools.py,SimulationJobOptions/preInclude.PileUpBunchTrains2012Config1_DigitConfig.py,RunDependentSimData/configLumi_muRange.py" "RAWtoESD:InDetSLHC_Example/preInclude.SLHC.NoTRT.Reco.py" "ESDtoAOD:InDetSLHC_Example/preInclude.SLHC.NoTRT.Reco.py"
+--runNumber=341080
+input template: value='--inputHighPtMinbiasHitsFile=${IN_MINBIAS_HIGH}' ratio='5' dataset='mc15_14TeV.119996.Pythia8_A2MSTW2008LO_minbias_inelastic_high.merge.HITS.e1133_s2630_s2194/' offset='0'
+input template: value='--inputHITSFile=${IN_HITS}' offset='0' dataset='mc15_14TeV:mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.merge.HITS.e4591_s2630_s2206_tid07155697_00'
+input template: value='--inputLowPtMinbiasHitsFile=${IN_MINBIAS_LOW}' ratio='5' dataset='mc15_14TeV.119995.Pythia8_A2MSTW2008LO_minbias_inelastic_low.merge.HITS.e1133_s2630_s2194/' offset='0'
+log template: value='log.07978474._${SN}.job.log.tgz' destination='type=DATADISK' dataset='mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.log.e4591_s2630_s2206_r7769_tid07978474_00' token='ddd:.*DATADISK' transient='False' offset='0'
+number template: value='--maxEvents=${MAXEVENTS}'
+number template: value='--skipEvents=${SKIPEVENTS}'
+output template: value='--outputAODFile=AOD.07978474._${SN}.pool.root' dataset='mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2630_s2206_r7769_tid07978474_00' token='ATLASDATADISK' offset='0'
+output template: value='--outputESDFile=ESD.07978474._${SN}.pool.root' dataset='mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.ESD.e4591_s2630_s2206_r7769_tid07978474_00' token='ATLASDATADISK' offset='0'
+pseudo_input template: value='--digiSeedOffset1=${SEQNUMBER}' offset='0' dataset='seq_number'
+pseudo_input template: value='--digiSeedOffset2=${SEQNUMBER}' offset='0' dataset='seq_number'
+pseudo_input template: value='--jobNumber=${SEQNUMBER}' offset='0' dataset='seq_number'
+
+
+********Prodsys parameters*************
+architecture 	x86_64-slc6-gcc48-opt
+baseRamCount 	0
+campaign 	MC15:MC15c
+cloud 	WORLD
+cpuTimeUnit 	HS06sPerEvent
+maxAttempt 	20
+maxFailure 	10
+mergeCoreCount 	1
+nEventsPerInputFile 	1000
+nEventsPerJob 	25
+nFiles 	20
+noWaitParent 	True
+processingType 	pile
+prodSourceLabel 	managed
+ramCount 	6000
+ramUnit 	MBPerCore
+reqID 	6518
+reuseSecOnDemand 	True
+taskName 	mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.e4591_s2630_s2206_r7769
+taskPriority 	530
+taskType 	prod
+ticketID 	ATLPSTASKS-654995
+ticketSystemType 	JIRA
+transHome 	AtlasProduction-20.3.3.1
+transPath 	Reco_tf.py
+transUses 	Atlas-20.3.3 
+
+
+************* Panda parameters **********
+PanDA/JEDI task parameters
+architecture 	x86_64-slc6-gcc48-opt
+basewalltime 	600
+campaign 	MC15:MC15c
+cloud 	WORLD
+corecount 	1
+countrygroup 	
+cpuefficiency 	90
+cputime 	13446
+cputimescoutjob 	2804087998
+cputimeunit 	HS06sPerEvent
+creationdate 	March 21, 2016, 4:10 p.m.
+currentpriority 	900
+deftreqid 	6518
+dsinfo 	{'nfilesfailed': 0, 'nfiles': 800, 'pctfailed': 0, 'pctfinished': 100, 'nfilesfinished': 800}
+endtime 	April 7, 2016, 6:17 p.m.
+errordialog 	
+eventservice 	ordinary
+iointensity 	61
+iointensityunit 	kBPerS
+jeditaskid 	7978474
+lockedby 	
+lockedtime 	April 7, 2016, 6:17 p.m.
+modificationtime 	April 7, 2016, 6:17 p.m.
+nucleus 	IN2P3-CC
+oldstatus 	
+outdiskcount 	10240
+outdiskunit 	kB
+parent_tid 	7978474
+processingtype 	pile
+prodsourcelabel 	managed
+ramcount 	3525
+ramunit 	MBPerCore
+reqid 	6518
+site 	
+splitrule 	US=3,NE=25,NW=1,RO=1,DE=rucio,RD=2
+starttime 	March 21, 2016, 4:10 p.m.
+statechangetime 	April 7, 2016, 6:17 p.m.
+status 	done
+superstatus 	done
+taskname 	mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.e4591_s2630_s2206_r7769
+taskpriority 	530
+tasktype 	prod
+termcondition 	
+ticketid 	ATLPSTASKS-654995
+ticketsystemtype 	JIRA
+transhome 	AtlasProduction-20.3.3.1
+transpath 	Reco_tf.py 
+
+
+#######################################################################################
+######################## Reco_tf Parameters mu=200 ####################################
+#######################################################################################
+--AMITag=r7768
+--autoConfiguration=everything
+--conditionsTag "all:OFLCOND-MC12-ITK-F-30-140-25"
+--DataRunNumber=195847
+--DBRelease="all:current"
+--geometryVersion="all:ATLAS-P2-ITK-01-00-00"
+--ignorePatterns='ALL ,LArTTCellMap , ERROR .*'
+--numberOfHighPtMinBias=0.483448
+--numberOfLowPtMinBias=139.5128
+--pileupFinalBunch=6
+--postExec "all:from IOVDbSvc.CondDB import conddb" "HITtoRDO:mergeMcEventCollTool=job.StandardPileUpToolsAlg.PileUpTools[\"MergeMcEventCollTool\"];mergeMcEventCollTool.OnlySaveSignalTruth=False;mergeMcEventCollTool.FirstXing=0;mergeMcEventCollTool.LastXing=0;mergeMcEventCollTool.DoSlimming=False;pixeldigi.EnableSpecialPixels=False;CfgMgr.MessageSvc().setError+=[\"HepMcParticleLink\"];tagToOverride=\"mV-LSB\";conddb.addOverride(\"/LAR/ElecCalibMCSC/Noise\",\"LARElecCalibMCSCNoise-\"+tagToOverride);conddb.addOverride(\"/LAR/ElecCalibMCSC/Ramp\", \"LARElecCalibMCSRamp-\"+tagToOverride);topSequence.LArSCL1Maker.TruthHitsContainer=\"SCellTruth\";streamRDO.ItemList+=[\"CaloCellContainer#SCellTruth\"]" "RAWtoESD:xAODMaker__xAODTruthCnvAlg(\"GEN_AOD2xAOD\",WriteInTimePileUpTruth=True);StreamESD.ItemList+=[\"LArDigitContainer#LArDigitSCL1\"]; StreamESD.ItemList+=[\"CaloCellContainer#SCell\"]" "ESDtoAOD:StreamAOD.ItemList+=[\"LArDigitContainer#LArDigitSCL1\"]; StreamAOD.ItemList+=[\"CaloCellContainer#SCell\"]"
+--postInclude "all:PyJobTransforms/UseFrontier.py,InDetSLHC_Example/postInclude.SLHC_Setup.py" "HITtoRDO:InDetSLHC_Example/postInclude.SLHC_Digitization_lowthresh.py,LArROD/LArSuperCellEnable.py" "RAWtoESD:InDetSLHC_Example/postInclude.DigitalClustering.py"
+--preExec "all:from LArROD.LArRODFlags import larRODFlags; larRODFlags.doOFCPileupOptimization.set_Value_and_Lock(True); larRODFlags.NumberOfCollisions.set_Value_and_Lock(140); from Digitization.DigitizationFlags import digitizationFlags; digitizationFlags.doInDetNoise.set_Value_and_Lock(False); from AthenaCommon.BeamFlags import jobproperties; jobproperties.Beam.bunchSpacing=25; digitizationFlags.overrideMetadata+=[\"SimLayout\",\"PhysicsList\"]; from CaloTools.CaloNoiseFlags import jobproperties; jobproperties.CaloNoiseFlags.FixedLuminosity.set_Value_and_Lock(140.0*1.45/8*50/25); userRunLumiOverride={\"run\":195847, \"startmu\":130.0, \"endmu\":150.0, \"stepmu\":1.0, \"lb\":1, \"starttstamp\":1328040250}; rec.doTrigger.set_Value_and_Lock(False)" "RAWtoESD:from CaloRec.CaloCellFlags import jobproperties;jobproperties.CaloCellFlags.doLArCellEmMisCalib=False;InDetFlags.doSLHCVeryForward.set_Value_and_Lock(True)"
+--preInclude "HITtoRDO:InDetSLHC_Example/preInclude.SLHC.py,InDetSLHC_Example/preInclude.NoTRT.py,Digitization/ForceUseOfPileUpTools.py,SimulationJobOptions/preInclude.PileUpBunchTrains2012Config1_DigitConfig.py,RunDependentSimData/configLumi_muRange.py" "RAWtoESD:InDetSLHC_Example/preInclude.SLHC.NoTRT.Reco.py" "ESDtoAOD:InDetSLHC_Example/preInclude.SLHC.NoTRT.Reco.py"
+--runNumber=341080
+input template: value='--inputHighPtMinbiasHitsFile=${IN_MINBIAS_HIGH}' ratio='5' dataset='mc15_14TeV.119996.Pythia8_A2MSTW2008LO_minbias_inelastic_high.merge.HITS.e1133_s2630_s2194/' offset='0'
+input template: value='--inputHITSFile=${IN_HITS}' offset='0' dataset='mc15_14TeV:mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.merge.HITS.e4591_s2630_s2206_tid07155697_00'
+input template: value='--inputLowPtMinbiasHitsFile=${IN_MINBIAS_LOW}' ratio='5' dataset='mc15_14TeV.119995.Pythia8_A2MSTW2008LO_minbias_inelastic_low.merge.HITS.e1133_s2630_s2194/' offset='0'
+log template: value='log.08020038._${SN}.job.log.tgz' destination='type=DATADISK' dataset='mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.log.e4591_s2630_s2206_r7768_tid08020038_00' token='ddd:.*DATADISK' transient='False' offset='0'
+number template: value='--maxEvents=${MAXEVENTS}'
+number template: value='--skipEvents=${SKIPEVENTS}'
+output template: value='--outputAODFile=AOD.08020038._${SN}.pool.root' dataset='mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.AOD.e4591_s2630_s2206_r7768_tid08020038_00' token='ATLASDATADISK' offset='0'
+output template: value='--outputESDFile=ESD.08020038._${SN}.pool.root' dataset='mc15_14TeV.341080.PowhegPythia8EvtGen_CT10_AZNLOCTEQ6L1_VBFH125_WWlvlv_EF_15_5.recon.ESD.e4591_s2630_s2206_r7768_tid08020038_00' token='ATLASDATADISK' offset='0'
+pseudo_input template: value='--digiSeedOffset1=${SEQNUMBER}' offset='0' dataset='seq_number'
+pseudo_input template: value='--digiSeedOffset2=${SEQNUMBER}' offset='0' dataset='seq_number'

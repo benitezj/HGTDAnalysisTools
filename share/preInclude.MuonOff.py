@@ -1,0 +1,10 @@
+from AthenaCommon.DetFlags import DetFlags
+DetFlags.Muon_setOff()
+#DetFlags.BCM_setOff()
+#DetFlags.DBM_setOff()
+#DetFlags.pixel_setOff()
+#DetFlags.SCT_setOff()
+#DetFlags.em_setOff()
+#DetFlags.HEC_setOff()
+#DetFlags.FCal_setOff()
+#DetFlags.Tile_setOff()

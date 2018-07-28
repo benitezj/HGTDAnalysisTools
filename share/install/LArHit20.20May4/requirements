@@ -1,0 +1,39 @@
+package HGTDG4SD
+author Jalal Abdallah <Jalal.Abdallah@cern.ch>
+
+public
+
+use AtlasPolicy           AtlasPolicy-*
+
+private
+
+use AtlasDoxygen          AtlasDoxygen-*          Tools
+use AtlasCLHEP            AtlasCLHEP-*            External
+use  CaloIdentifier       CaloIdentifier-*        Calorimeter
+use GaudiInterface        GaudiInterface-*        External
+use Geant4                Geant4-*                External
+use G4AtlasTools          G4AtlasTools-*          Simulation/G4Atlas
+use InDetSimEvent         InDetSimEvent-*         InnerDetector
+use LArSimEvent           LArSimEvent-*           LArCalorimeter
+use MCTruth               MCTruth-*               Simulation/G4Sim
+use SimHelpers            SimHelpers-*            Simulation/G4Sim
+use StoreGate             StoreGate-*             Control
+use CxxUtils              CxxUtils-*              Control
+
+# temporary for debugging
+use DetDescrCnvSvc              DetDescrCnvSvc-*              DetectorDescription
+use CaloIdCnv              CaloIdCnv-*              Calorimeter/CaloCnv
+use LArGeoEndcap              LArGeoEndcap-*              LArCalorimeter/LArGeoModel
+use LArSimEventTPCnv          LArSimEventTPCnv-*               LArCalorimeter/LArCnv
+use ISF_HepMC_Services      ISF_HepMC_Services-*           Simulation/ISF/ISF_HepMC
+use G4AtlasApps             G4AtlasApps-*              Simulation/G4Atlas
+use ISF_HepMC_Tools        ISF_HepMC_Tools-*     Simulation/ISF/ISF_HepMC
+end_private
+
+
+public
+apply_pattern declare_python_modules files="*.py"
+
+# define link options
+library HGTDG4SD *.cxx components/*.cxx
+apply_pattern component_library

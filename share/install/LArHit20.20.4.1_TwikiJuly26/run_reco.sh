@@ -1,0 +1,22 @@
+Reco_tf.py \
+--inputHITSFile EVNT.06447410._000001.pool.root.1_11.HITS.pool.root \
+--inputLowPtMinbiasHitsFile minbiasLow.HITS.pool.root \
+--inputHighPtMinbiasHitsFile minbiasHigh.HITS.pool.root \
+--outputESDFile ESD.root \
+--outputAODFile AOD.root \
+--maxEvents 25 \
+--jobNumber 4711 \
+--digiSeedOffset1 459 \
+--digiSeedOffset2 459 \
+--digiSteeringConf 'StandardInTimeOnlyTruth' \
+--conditionsTag 'default:OFLCOND-MC15c-SDR-06' \
+--numberOfHighPtMinBias '0.69064' \
+--autoConfiguration 'everything' \
+--numberOfLowPtMinBias '199.304' \
+--DBRelease 'all:current' \
+--geometryVersion 'default:ATLAS-P2-ITK-06-02-00' \
+--preInclude 'all:InDetSLHC_Example/preInclude.SLHC_Setup_ExtBrl_4.py,preInclude.HGTD.py' 'default:InDetSLHC_Example/preInclude.SLHC.NoTRT.Reco.py,InDetSLHC_Example/SLHC_Setup_Reco_TrackingGeometry.py' 'HITtoRDO:InDetSLHC_Example/preInclude.SLHC.py,InDetSLHC_Example/preInclude.NoTRT.py,Digitization/ForceUseOfPileUpTools.py,SimulationJobOptions/preInclude.PileUpBunchTrains2012Config1_DigitConfig.py,RunDependentSimData/configLumi_muRange.py' 'RDOMergeAthenaMP:InDetSLHC_Example/preInclude.SLHC.py,InDetSLHC_Example/preInclude.NoTRT.py' 'POOLMergeAthenaMPAOD:InDetSLHC_Example/preInclude.SLHC.NoTRT.Ana.py,InDetSLHC_Example/SLHC_Setup_Reco_TrackingGeometry.py' 'POOLMergeAthenaMPDAODIDTRKVALID:InDetSLHC_Example/preInclude.SLHC.NoTRT.Ana.py,InDetSLHC_Example/SLHC_Setup_Reco_TrackingGeometry.py' \
+--DataRunNumber '240020' \
+--postInclude 'all:PyJobTransforms/UseFrontier.py,InDetSLHC_Example/postInclude.SLHC_Setup_ExtBrl_4.py' 'HITtoRDO:InDetSLHC_Example/postInclude.SLHC_Digitization_lowthresh.py' 'RAWtoESD:InDetSLHC_Example/postInclude.DigitalClustering.py,postInclude.TGCcabling.py' \
+--preExec 'all:userRunLumiOverride={"run":240020, "startmu":190.0, "endmu":210.0, "stepmu":1.0, "lb":1, "starttstamp":1410020000}; from LArROD.LArRODFlags import larRODFlags; larRODFlags.doOFCPileupOptimization.set_Value_and_Lock(True); larRODFlags.NumberOfCollisions.set_Value_and_Lock(200); from AthenaCommon.BeamFlags import jobproperties; jobproperties.Beam.bunchSpacing=25; from CaloTools.CaloNoiseFlags import jobproperties; jobproperties.CaloNoiseFlags.FixedLuminosity.set_Value_and_Lock(200*1.45/8*50/25); rec.doTrigger.set_Value_and_Lock(False)' 'HITtoRDO:from Digitization.DigitizationFlags import digitizationFlags; digitizationFlags.doInDetNoise.set_Value_and_Lock(False); digitizationFlags.overrideMetadata+=["SimLayout","PhysicsList"];' 'RAWtoESD:from CaloRec.CaloCellFlags import jobproperties;jobproperties.CaloCellFlags.doLArCellEmMisCalib=False; InDetFlags.doSLHCConversionFinding.set_Value_and_Lock(False);' 'ESDtoDPD:rec.doDPD.set_Value_and_Lock(True); rec.DPDMakerScripts.set_Value_and_Lock(["InDetPrepRawDataToxAOD/InDetDxAOD.py","PrimaryDPDMaker/PrimaryDPDMaker.py"]); from InDetPrepRawDataToxAOD.InDetDxAODJobProperties import InDetDxAODFlags; InDetDxAODFlags.ThinHitsOnTrack.set_Value_and_Lock(False); InDetDxAODFlags.ThinTrackSelection.set_Value_and_Lock("InDetTrackParticles.pt > 0.0*GeV"); InDetDxAODFlags.DumpTriggerInfo.set_Value_and_Lock(False); InDetDxAODFlags.DumpUnassociatedHits.set_Value_and_Lock(False); InDetDxAODFlags.DumpPixelInfo.set_Value_and_Lock(True); InDetDxAODFlags.DumpPixelRdoInfo.set_Value_and_Lock(True); InDetDxAODFlags.DumpSctInfo.set_Value_and_Lock(True); InDetDxAODFlags.DumpSctRdoInfo.set_Value_and_Lock(True)' \
+--postExec 'all:from IOVDbSvc.CondDB import conddb' 'HITtoRDO:pixeldigi.EnableSpecialPixels=False; CfgMgr.MessageSvc().setError+=["HepMcParticleLink"]; from AthenaCommon.CfgGetter import getPublicTool; getPublicTool("PixelDigitizationTool").ParticleBarcodeVeto=0; getPublicTool("SCT_DigitizationTool").ParticleBarcodeVeto=0;' 'ESDtoAOD:xAODMaker__xAODTruthCnvAlg("GEN_AOD2xAOD",WriteInTimePileUpTruth=True)' 'ESDtoDPD:xAODMaker__xAODTruthCnvAlg("GEN_AOD2xAOD",WriteInTimePileUpTruth=True)' 
